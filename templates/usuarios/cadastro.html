@@ -1,0 +1,25 @@
+{% extends "partial/header.html" %}
+
+{% block content %}
+    <h2>Cadastrar Usuário</h2>
+    
+    {% if mensagem %}
+        <div class="message {{ 'success' if 'sucesso' in mensagem else 'error' }}">
+            {{ mensagem }}
+        </div>
+    {% endif %}
+
+    <form method="post" action="/usuarios">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
+
+{% include "partial/footer.html" %}
